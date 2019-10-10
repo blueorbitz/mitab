@@ -46,7 +46,7 @@ CPL_CVSID("$Id: cpl_getexecpath.cpp 10645 2007-01-18 02:22:39Z warmerdam $");
 int CPLGetExecPath( char *pszPathBuf, int nMaxLength )
 {
 #ifndef WIN32CE
-    if( GetModuleFileName( NULL, pszPathBuf, nMaxLength ) == 0 )
+    if( GetModuleFileNameA( NULL, pszPathBuf, nMaxLength ) == 0 )
 #else
     if( CE_GetModuleFileNameA( NULL, pszPathBuf, nMaxLength ) == 0 )
 #endif

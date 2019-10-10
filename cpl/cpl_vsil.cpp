@@ -57,13 +57,13 @@ CPL_CVSID("$Id: cpl_vsil.cpp 18725 2010-02-04 21:02:19Z rouault $");
  * doesn't exist.
  */
 
-char **VSIReadDir(const char *pszPath)
-{
-    VSIFilesystemHandler *poFSHandler = 
-        VSIFileManager::GetHandler( pszPath );
+//char **VSIReadDir(const char *pszPath)
+//{
+//    VSIFilesystemHandler *poFSHandler =
+//        VSIFileManager::GetHandler( pszPath );
 
-    return poFSHandler->ReadDir( pszPath );
-}
+//    return poFSHandler->ReadDir( pszPath );
+//}
 
 /************************************************************************/
 /*                             CPLReadDir()                             */

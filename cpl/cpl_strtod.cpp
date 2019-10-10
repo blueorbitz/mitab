@@ -155,7 +155,6 @@ double CPLAtofM( const char *nptr )
 
 static void CPLReplacePointByLocalePoint(char* pszNumber, char point)
 {
-#if defined(WIN32CE)
     static char byPoint = 0;
     if (byPoint == 0)
     {
@@ -177,29 +176,6 @@ static void CPLReplacePointByLocalePoint(char* pszNumber, char point)
             i++;
         }
     }
-#else
-    struct lconv *poLconv = localeconv();
-    if ( poLconv
-         && poLconv->decimal_point
-         && strlen(poLconv->decimal_point) > 0 )
-    {
-        int     i = 0;
-        char    byPoint = poLconv->decimal_point[0];
-
-        if (point != byPoint)
-        {
-            while ( pszNumber[i] )
-            {
-                if ( pszNumber[i] == point )
-                {
-                    pszNumber[i] = byPoint;
-                    break;
-                }
-                i++;
-            }
-        }
-    }
-#endif
 }
 
 

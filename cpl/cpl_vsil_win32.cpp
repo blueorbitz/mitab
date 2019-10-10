@@ -364,7 +364,7 @@ VSIVirtualHandle *VSIWin32FilesystemHandler::Open( const char *pszFilename,
                 FILE_ATTRIBUTE_READONLY : FILE_ATTRIBUTE_NORMAL, 
     
 #ifndef WIN32CE
-    hFile = CreateFile( pszFilename, dwDesiredAccess, 
+    hFile = CreateFileA( pszFilename, dwDesiredAccess,
                         FILE_SHARE_READ | FILE_SHARE_WRITE, 
                         NULL, dwCreationDisposition,  dwFlagsAndAttributes, NULL );
 #else
@@ -396,7 +396,7 @@ int VSIWin32FilesystemHandler::Stat( const char * pszFilename,
                                      VSIStatBufL * pStatBuf )
 
 {
-    return( VSI_STAT64( pszFilename, pStatBuf ) );
+    return( stat( pszFilename, pStatBuf ) );
 }
 
 /************************************************************************/

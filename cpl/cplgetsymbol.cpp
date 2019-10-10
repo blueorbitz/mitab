@@ -141,7 +141,7 @@ void *CPLGetSymbol( const char * pszLibrary, const char * pszSymbolName )
     void        *pLibrary;
     void        *pSymbol;
 
-    pLibrary = LoadLibrary(pszLibrary);
+    pLibrary = LoadLibraryA(pszLibrary);
     if( pLibrary == NULL )
     {
         LPVOID      lpMsgBuf = NULL;
